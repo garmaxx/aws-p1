@@ -8,10 +8,10 @@ import time
 
 
 #Variables that contains the user credentials to access Twitter API
-consumer_key = ''
-consumer_secret =''
-access_token = ''
-access_token_secret = ''
+consumer_key = 'Rf2kNvxKnohfkUnuj8dgG5DBf'
+consumer_secret ='ZobyGCU26OrS2ouNzBJ6wnJ3QjEIKbhRNRT1Q8wwY2QDr4UhRm'
+access_token = '1571187431415619586-Oi1jowmhEKostgi2kuiZuL4YM6dexT'
+access_token_secret = 'xzdDhVoKYQ9fLAPFyBAbLSieUxMSwrJYvl6fRTR1dgBPl'
 
 
 #This is a basic listener that just prints received tweets to stdout.
