@@ -1,0 +1,11 @@
+{
+  "Type" : "AWS::Kinesis::Stream",
+  "Properties" : {
+      "Name" : Twitter-to-S3-Pipeline,
+      "RetentionPeriodHours" : Integer,
+      "ShardCount" : Integer,
+      "StreamEncryption" : StreamEncryption,
+      "StreamModeDetails" : StreamModeDetails,
+      "Tags" : [ Tag, ... ]
+    }
+}
