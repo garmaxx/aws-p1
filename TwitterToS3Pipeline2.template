@@ -1,0 +1,71 @@
+AWSTemplateFormatVersion: 2010-09-09
+Metadata:
+  'AWS::CloudFormation::Designer':
+    c732c694-0687-4c62-a703-204abdd8a42d:
+      size:
+        width: 390
+        height: 300
+      position:
+        x: 60
+        'y': 50
+      z: 0
+      embeds:
+        - ada9553f-893e-425c-975c-8ebd4d568af7
+    ada9553f-893e-425c-975c-8ebd4d568af7:
+      size:
+        width: 230
+        height: 140
+      position:
+        x: 150
+        'y': 130
+      z: 1
+      parent: c732c694-0687-4c62-a703-204abdd8a42d
+      embeds: []
+    8a6fcb0d-c306-4df3-a406-d83caa3cb917:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: -70
+        'y': 150
+      z: 0
+      embeds: []
+    3638dc7c-735d-449d-8e2b-c2196dbf6bb5:
+      source:
+        id: 8a6fcb0d-c306-4df3-a406-d83caa3cb917
+      target:
+        id: c732c694-0687-4c62-a703-204abdd8a42d
+      z: 2
+Resources:
+  EC2VPC:
+    Type: 'AWS::EC2::VPC'
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: 'true'
+      EnableDnsHostnames: 'true'
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: c732c694-0687-4c62-a703-204abdd8a42d
+  PublicSubnet:
+    Type: 'AWS::EC2::VPC'
+    Properties:
+      VpcId: !Ref EC2VPC
+      CidrBlock: 10.0.0.0/24
+      AvailabilityZone: “us-east-1a”
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: ada9553f-893e-425c-975c-8ebd4d568af7
+  EC2IG:
+    Type: 'AWS::EC2::InternetGateway'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 8a6fcb0d-c306-4df3-a406-d83caa3cb917
+  EC2VPCG4ISMW:
+    Type: 'AWS::EC2::VPCGatewayAttachment'
+    Properties:
+      VpcId: !Ref EC2VPC
+      InternetGatewayId: !Ref EC2IG
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 3638dc7c-735d-449d-8e2b-c2196dbf6bb5
