@@ -20,7 +20,8 @@ Metadata:
         'y': 130
       z: 1
       parent: c732c694-0687-4c62-a703-204abdd8a42d
-      embeds: []
+      embeds:
+        - 72370c27-72b8-4a45-a1bd-9d34ed797f28
     8a6fcb0d-c306-4df3-a406-d83caa3cb917:
       size:
         width: 60
@@ -32,10 +33,48 @@ Metadata:
       embeds: []
     3638dc7c-735d-449d-8e2b-c2196dbf6bb5:
       source:
-        id: 8a6fcb0d-c306-4df3-a406-d83caa3cb917
-      target:
         id: c732c694-0687-4c62-a703-204abdd8a42d
+      target:
+        id: 8a6fcb0d-c306-4df3-a406-d83caa3cb917
+      z: 0
+    72370c27-72b8-4a45-a1bd-9d34ed797f28:
+      size:
+        width: 140
+        height: 90.63158047661554
+      position:
+        x: 205.42314430860293
+        'y': 169.36841952338446
       z: 2
+      parent: ada9553f-893e-425c-975c-8ebd4d568af7
+      embeds:
+        - 81039feb-37d1-4f02-8531-6ab0a66d59ec
+    81039feb-37d1-4f02-8531-6ab0a66d59ec:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 270
+        'y': 190
+      z: 3
+      parent: 72370c27-72b8-4a45-a1bd-9d34ed797f28
+      isassociatedwith:
+        - 8a6fcb0d-c306-4df3-a406-d83caa3cb917
+      iscontainedinside:
+        - 72370c27-72b8-4a45-a1bd-9d34ed797f28
+      dependson:
+        - 3638dc7c-735d-449d-8e2b-c2196dbf6bb5
+    d7cc94ca-8dfc-4e45-b8dd-55a42ef82788:
+      source:
+        id: 81039feb-37d1-4f02-8531-6ab0a66d59ec
+      target:
+        id: 8a6fcb0d-c306-4df3-a406-d83caa3cb917
+      z: 4
+    eed31c80-7ecc-484e-811b-cf6b89883dbc:
+      source:
+        id: 81039feb-37d1-4f02-8531-6ab0a66d59ec
+      target:
+        id: 3638dc7c-735d-449d-8e2b-c2196dbf6bb5
+      z: 5
 Resources:
   EC2VPC:
     Type: 'AWS::EC2::VPC'
@@ -69,3 +108,21 @@ Resources:
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 3638dc7c-735d-449d-8e2b-c2196dbf6bb5
+  EC2RT:
+    Type: 'AWS::EC2::RouteTable'
+    Properties:
+      VpcId: !Ref EC2VPC
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 72370c27-72b8-4a45-a1bd-9d34ed797f28
+  EC2R289JN:
+    Type: 'AWS::EC2::Route'
+    Properties:
+      RouteTableId: !Ref EC2RT
+      GatewayId: !Ref EC2IG
+      DestinationCidrBlock: 0.0.0.0/0
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 81039feb-37d1-4f02-8531-6ab0a66d59ec
+    DependsOn:
+      - EC2VPCG4ISMW
